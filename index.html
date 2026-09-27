@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>This Week, In Your Words — Python for Data Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#FFF8F0;
+  color:#22223B;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  padding:70px 0 90px;
+  background:linear-gradient(135deg,#FF6B9D 0%,#FF9776 35%,#FFC65C 70%,#4ECDC4 100%);
+  overflow:hidden;
+}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.35;}
+.blob1{width:220px;height:220px;background:#fff;top:-60px;left:-60px;}
+.blob2{width:160px;height:160px;background:#fff;bottom:-50px;right:8%;}
+.blob3{width:90px;height:90px;background:#fff;top:30%;right:20%;}
+.confetti{position:absolute;font-size:22px;opacity:.55;}
+.hero .container{position:relative;z-index:2;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.28);backdrop-filter:blur(6px);
+  color:#fff;font-weight:600;font-size:13px;
+  padding:8px 16px;border-radius:999px;margin-bottom:22px;
+}
+.hero h1{
+  font-size:clamp(32px,5.2vw,52px);
+  font-weight:800;color:#fff;letter-spacing:-.02em;
+  max-width:16ch;margin:0;
+  text-shadow:0 2px 18px rgba(0,0,0,.08);
+}
+.hero p{
+  font-size:17px;color:rgba(255,255,255,.95);max-width:60ch;margin-top:16px;font-weight:500;
+}
+
+/* ===== STATS ===== */
+.stats-wrap{margin-top:-55px;position:relative;z-index:3;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media (max-width:760px){.stats-grid{grid-template-columns:1fr;}}
+.stat-card{
+  background:#fff;border-radius:22px;padding:26px 24px;
+  box-shadow:0 14px 34px rgba(34,34,59,.12);
+  text-align:center;
+}
+.stat-card .icon{font-size:30px;margin-bottom:10px;}
+.stat-card .num{font-size:34px;font-weight:800;color:#22223B;line-height:1;}
+.stat-card .label{font-size:13.5px;color:#6B7280;margin-top:8px;font-weight:500;}
+.stat-card.pink{border-top:5px solid #FF6B9D;}
+.stat-card.orange{border-top:5px solid #FF9776;}
+.stat-card.teal{border-top:5px solid #4ECDC4;}
+
+/* ===== SECTION HEADERS ===== */
+.section{padding:70px 0 20px;}
+.section-head{text-align:center;max-width:620px;margin:0 auto 40px;}
+.section-tag{
+  display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.04em;
+  color:#FF6B9D;background:#FFE8EF;padding:6px 14px;border-radius:999px;margin-bottom:14px;
+}
+.section-tag.green{color:#0E9F6E;background:#DEF7EC;}
+.section-head h2{font-size:clamp(24px,3.5vw,32px);font-weight:800;color:#22223B;margin:0;}
+.section-head p{font-size:15px;color:#6B7280;margin-top:10px;}
+
+/* ===== QUOTE CARDS ===== */
+.quote-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;padding-bottom:20px;
+}
+.quote-card{
+  border-radius:20px;padding:26px 24px;position:relative;
+  box-shadow:0 10px 26px rgba(34,34,59,.08);
+  transform:rotate(var(--tilt,0deg));
+}
+.quote-card:nth-child(1){--tilt:-1.2deg;background:#FFE8EF;}
+.quote-card:nth-child(2){--tilt:1deg;background:#FFF3D6;}
+.quote-card:nth-child(3){--tilt:-.8deg;background:#E2F7F4;}
+.quote-card:nth-child(4){--tilt:1.3deg;background:#EAE6FB;}
+.quote-card:nth-child(5){--tilt:-1deg;background:#FFE9DC;}
+.quote-mark{font-size:38px;font-weight:800;line-height:1;opacity:.25;color:#22223B;margin-bottom:6px;}
+.quote-text{font-size:15px;font-weight:500;color:#22223B;margin:0;}
+.quote-foot{margin-top:16px;font-size:12px;color:#6B7280;font-weight:600;display:flex;align-items:center;gap:6px;}
+
+/* ===== IMPROVE SECTION ===== */
+.improve-wrap{
+  background:linear-gradient(180deg,#F5F3FF,#FFF8F0);
+  border-radius:28px;padding:44px 34px;margin:10px 0 40px;
+}
+.improve-list{display:flex;flex-direction:column;gap:14px;}
+.improve-item{
+  background:#fff;border-radius:16px;padding:18px 20px;
+  box-shadow:0 6px 18px rgba(34,34,59,.06);
+  display:flex;gap:16px;align-items:flex-start;
+}
+.improve-num{
+  flex:none;width:34px;height:34px;border-radius:10px;
+  background:#EDEAFE;color:#6E56C9;font-weight:800;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+}
+.improve-body p{margin:0 0 8px;font-size:14.5px;color:#22223B;font-weight:500;}
+.improve-note{
+  font-size:13px;color:#0E9F6E;background:#DEF7EC;
+  display:inline-block;padding:5px 12px;border-radius:999px;font-weight:600;
+}
+
+/* ===== CLOSING ===== */
+.closing{
+  text-align:center;padding:60px 0 70px;
+}
+.closing-card{
+  background:linear-gradient(135deg,#4ECDC4,#6E56C9);
+  border-radius:28px;padding:48px 30px;color:#fff;
+  box-shadow:0 20px 44px rgba(110,86,201,.25);
+}
+.closing-card h2{font-size:clamp(24px,4vw,30px);font-weight:800;margin:0 0 14px;}
+.closing-card p{color:rgba(255,255,255,.92);font-size:15.5px;max-width:56ch;margin:0 auto;font-weight:500;}
+.signature{margin-top:26px;font-size:14px;color:rgba(255,255,255,.85);font-weight:600;}
+
+footer{text-align:center;padding:24px 0 40px;color:#9CA3AF;font-size:12.5px;}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <span class="confetti" style="top:20%;left:12%;">🎉</span>
+  <span class="confetti" style="top:60%;left:6%;">⭐</span>
+  <span class="confetti" style="top:15%;right:14%;">✨</span>
+  <span class="confetti" style="bottom:12%;left:40%;">💛</span>
+  <div class="container">
+    <span class="hero-eyebrow">📊 Week in review · 6 sessions</span>
+    <h1>Thank you for an incredible week.</h1>
+    <p>Six sessions, dozens of honest ratings, and one of the fullest classrooms all month. Here's what stood out in your own words, and what we're fixing next, together.</p>
+  </div>
+</section>
+
+<div class="container stats-wrap">
+  <div class="stats-grid">
+    <div class="stat-card pink">
+      <div class="icon">⭐</div>
+      <div class="num">9.5 / 10</div>
+      <div class="label">Average rating across all 6 sessions this week</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="icon">🪑</div>
+      <div class="num">Full house</div>
+      <div class="label">Attendance stayed strong all week. The usual drop-off by session six just didn't happen</div>
+    </div>
+    <div class="stat-card teal">
+      <div class="icon">💬</div>
+      <div class="num">100%</div>
+      <div class="label">Genuine, detailed feedback from across the batch, not just star ratings</div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">💛 What you loved</span>
+      <h2>In your own words</h2>
+      <p>Every quote below came straight from this week's feedback. Names kept out on purpose, the words speak for themselves.</p>
+    </div>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">Really liked the notes created and how simple they were to understand. Easy to follow language.</p>
+        <div class="quote-foot">⭐ Student feedback</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">The first Python session was good and informative. The concepts were explained in a simple and easy way.</p>
+        <div class="quote-foot">⭐ Student feedback</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">Very interactive session. All concepts were explained clearly, and every doubt was resolved.</p>
+        <div class="quote-foot">⭐ Student feedback</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">The language used to explain concepts was simple, subtle, and straight to the point. It helped me gain the confidence to code well.</p>
+        <div class="quote-foot">⭐ Student feedback</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">Appreciated that extra lectures and sessions were taken. Not many faculty actually do that.</p>
+        <div class="quote-foot">⭐ Student feedback</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="improve-wrap">
+      <div class="section-head" style="margin-bottom:30px;">
+        <span class="section-tag green">🌱 What we're working on</span>
+        <h2>The other half of the feedback</h2>
+        <p>A 9.5 doesn't mean nothing's missing, it means you trusted us enough to be honest about the rest. Here's every point raised, and where it's headed.</p>
+      </div>
+      <div class="improve-list">
+        <div class="improve-item">
+          <div class="improve-num">1</div>
+          <div class="improve-body">
+            <p>Referrals and job support were mentioned early on, but nothing's been shared yet.</p>
+            <span class="improve-note">Fair callout, let's set a clear timeline in class</span>
+          </div>
+        </div>
+        <div class="improve-item">
+          <div class="improve-num">2</div>
+          <div class="improve-body">
+            <p>Requests for a more advanced, deeper perspective. What's been taught so far still feels basic to intermediate.</p>
+            <span class="improve-note">Noted, we'll map out where the advanced material fits</span>
+          </div>
+        </div>
+        <div class="improve-item">
+          <div class="improve-num">3</div>
+          <div class="improve-body">
+            <p>Two separate students asked for a better feel of how Python actually works under the hood, in plain, everyday terms, not just how to write the code.</p>
+            <span class="improve-note">Great ask, building this into the next few sessions</span>
+          </div>
+        </div>
+        <div class="improve-item">
+          <div class="improve-num">4</div>
+          <div class="improve-body">
+            <p>A request for more live coding time during lectures, to actually test and sharpen coding skills in the moment.</p>
+            <span class="improve-note">Agreed, more hands-on time coming</span>
+          </div>
+        </div>
+        <div class="improve-item">
+          <div class="improve-num">5</div>
+          <div class="improve-body">
+            <p>One student shared they feel too shy to ask questions in class, worried it might sound like a silly question in front of everyone. They'd value a one-on-one option.</p>
+            <span class="improve-note">There's no such thing as a silly question, and a private option is coming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <div class="closing-card">
+      <h2>Onward to the next module, together.</h2>
+      <p>Thank you for showing up, every single session, and for telling us the truth about what worked and what didn't. That's exactly what makes the next six sessions better than these six.</p>
+      <div class="signature">— Siddhant Deepak Kumar Pradhan, Data Engineering &amp; AI Faculty, IntelliBI</div>
+    </div>
+  </div>
+</section>
+
+<footer>Python for Data Engineering · Weekly Feedback Recap · IntelliBI</footer>
+
+</body>
+</html>
